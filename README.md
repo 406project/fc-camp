@@ -1,7 +1,6 @@
-# Fast Campus - Front-End CAMP
+## Fast Campus - Front-End 실전 CAMP
 
-## `DAY 1` Lecture Contents
+### 강의 요약
 
-- Pre Survey & Orientation
-- Course Overview
-- Javascript Advanced
+- [1일차](SUMMARY/01.md)
+
