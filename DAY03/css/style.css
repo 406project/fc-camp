@@ -21,13 +21,14 @@
 }
 
 .toggle-grid-btn {
-	cursor:    pointer;
-	position:  fixed;
-	z-index:   100000;
-	top:       15px;
-	right:     15px;
-	border:    1px solid;
-	padding:   0.6em 0.7em;
-	font-size: 25px;
-	color:     #4A6FD0;
+	cursor:     pointer;
+	position:   fixed;
+	z-index:    100000;
+	top:        15px;
+	right:      15px;
+	border:     1px solid;
+	padding:    0.6em 0.7em;
+	font-size:  25px;
+	color:      #4a6fd0;
+	background: #fff;
 }
