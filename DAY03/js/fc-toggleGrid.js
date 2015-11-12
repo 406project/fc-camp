@@ -35,17 +35,18 @@
 // ------------------------------------------
 (function(){
 
-	// 1. 문서에서 토글 그리드 버튼(.toggle-grid-btn)을 찾는다.
+	// 1. 문서에서 토글 그리드 버튼(.toggle-grid-btn), 컨테이너(.container) 요소를 찾는다.
 	var toggle_grid_btn = document.querySelector('.toggle-grid-btn'),
 		container       = document.querySelector('.container'),
+		class_name      = 'grid',
 	// console.log( toggle_grid_btn );
 	// console.log( container );
 
 		// 2. 클릭했을 때 처리할 함수(이벤트 핸들러)를 정의한다.
 		toggleGrid = function (event) {
-			var type       = event.type,
-				key        = event.keyCode,
-				class_name = 'grid';
+
+			var type = event.type,
+				key  = event.keyCode;
 
 			if (
 				// 클릭 할 때
