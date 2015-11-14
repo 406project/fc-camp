@@ -1,0 +1,39 @@
+/*! common.css © yamoo9.net, 2015 */
+
+
+/* 이미지 대체(Image Replacement) */
+.ir {
+	overflow: hidden;
+	text-indent: -9999em;
+}
+
+.no-img .ir {
+	overflow: auto;
+	text-indent: 0;
+}
+
+/* 마이크로 클리어픽스(Micro Clearfix) */
+.clearfix:after, .clearfix:before { content: ''; display: table; }
+.clearfix:after { clear: both; }
+.lt-ie8 .clearfix { zoom: 1; }
+
+/* [접근성] 스크린리더가 읽을 수 있는 화면 감춤 */
+.a11y-hidden {
+	overflow: hidden;
+	position: absolute;
+	clip:     rect(0, 0, 0, 0); /* IE 6,7 */
+	clip:     rect(0 0 0 0);
+	width:    1px;
+	height:   1px;
+	margin:   -1px;
+	border:   0;
+	padding:  0;
+}
+.a11y-hidden.focusable:focus {
+	overflow: visible;
+	position: static;
+	clip:     auto;
+	width:    auto;
+	height:   auto;
+	margin:   0;
+}
