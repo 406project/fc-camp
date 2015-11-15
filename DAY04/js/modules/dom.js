@@ -1,16 +1,19 @@
-// 네임스페이스
+// 네임스페이스 DOM
 var DOM = (function(global, undefined){
 	'use strict';
+
+	// 호이스팅 고려 영역 최상단에 변수 선언
+	var _toString, _getStyle;
 
 	/**
 	 * ----------------------------------------------------------------
 	 * 데이터 유형 체크
 	 * ----------------------------------------------------------------
 	 */
-	var toString = Object.prototype.toString;
+	_toString = Object.prototype.toString;
 
 	function _isType(data, type) {
-		return toString.call(data).slice(8, -1).toLowerCase() === type;
+		return _toString.call(data).slice(8, -1).toLowerCase() === type;
 	}
 
 	function _isObject(data) {
@@ -103,7 +106,7 @@ var DOM = (function(global, undefined){
 
 	// CSS 설정
 	// ----------------------------------------------------------------
-	var _getStyle = (function(){
+	_getStyle = (function(){
 		var __getStyle;
 		if ( global.getComputedStyle ) {
 			__getStyle = function (el, prop) {
