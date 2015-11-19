@@ -35,7 +35,7 @@
 
 	// DOM에 추가
 	$link_style.before( $link_fontawesome );
-	$body.prepend( toggle_grid_btn );
+	$body.prepend( $toggle_grid_btn );
 
 	// 이벤트 핸들러 연결
 	$toggle_grid_btn.on('click keydown', toggleGrid);
