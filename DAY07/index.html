@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="ko-KR" class="no-js">
+<!--<![endif]-->
+<!--[if IE 8]><html lang="ko-KR" class="ie lt-ie10 ie8 no-js"><![endif]-->
+<!--[if IE 9]><html lang="ko-KR" class="ie lt-ie10 ie9 no-js"><![endif]-->
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>Javascript 모듈 &lt; Front-End 실전 CAMP</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<!-- Javascript 모듈 -->
+	<script src="js/modules/module-Counter.js"></script>
+	<script src="js/modules/module-DataManager.js"></script>
+	<script src="js/modules/module-Type.js"></script>
+	<script src="js/modules/module-Events.js"></script>
+	<script src="js/modules/module-DOM.js"></script>
+	<script src="js/modules/module-DOM.css.js"></script>
+
+	<script>
+	// [의존 모듈 호출]
+	// 프론트-엔드 환경에서는 HTML에 모듈을 먼저 불러와야 사용이 가능
+	(function(Type, Counter, DataManager, Events, DOM){
+		'use strict';
+
+		// 싱글톤 객체 유형
+		console.log( 'Counter', Counter );
+		console.log( 'DataManager', DataManager );
+		console.log( 'Type', Type );
+		console.log( 'Events', Events );
+
+		// 생성자/프로토타입 객체 생성 유형
+		console.log( 'DOM 데이터 유형', typeof DOM );
+		console.log( 'DOM.prototype', DOM.prototype );
+		console.log( 'DOM.prototype.css 존재하는가?', !!DOM.prototype.css );
+
+	})(this.Type, this.Counter, this.DataManager, this.Events, this.DOM);
+	</script>
+
+</body>
+</html>

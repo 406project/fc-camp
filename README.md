@@ -10,4 +10,5 @@
 - [4일차](SUMMARY/04.md)
 - [5일차](SUMMARY/05.md)
 - [6일차](SUMMARY/06.md)
+- [7일차](SUMMARY/07.md)
 
