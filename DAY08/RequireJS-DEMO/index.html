@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="ko-KR" class="no-js">
+<!--<![endif]-->
+<!--[if IE 8]><html lang="ko-KR" class="ie lt-ie10 ie8 no-js"><![endif]-->
+<!--[if IE 9]><html lang="ko-KR" class="ie lt-ie10 ie9 no-js"><![endif]-->
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>Javascript 모듈 &lt; Front-End 실전 CAMP</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- RequireJS 환경설정 -->
+	<script>
+	// var require = {
+	// 	'baseUrl': 'js/'
+	// };
+	</script>
+
+	<!-- RequireJS 호출 -->
+	<!-- data-main="js/main" - js/main.js 파일, 비동기 호출 -->
+	<script src="js/vender/requirejs.min.js" data-main="js/main"></script>
+
+	<!-- js/main.js 파일, 동기 호출 -->
+	<!-- <script src="js/main.js"></script> -->
+
+	<!-- 비동기 호출하지 않은 상황에서 제어 -->
+	<!--
+	<script>
+		// document.body.innerHTML( '<p>야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 쉬지 숨 죽여도 그대 청춘의, 세상을 엮어가는 사명으로 고동소리, 실수조차도 거추장스런 소리 쿵쿵대는! 운동화도 티셔츠 꽃처럼 장엄한.</p><p>가슴을 거추장스런 꽃처럼 만들 않고! 설레게 장엄한 보기만, 아름다운 하고 하루를 쉬지, 피어나는 아름답다, 햇볕처럼 흐르는, 눈부신 너야말로 심장 땀.</p>' );
+	</script>
+	-->
+
+	<!-- RequireJS를 사용하여 비동기 호출 -->
+	<script>
+		// require([dependencies], callbcack);
+		// require(['http://code.jquery.com/jquery-2.1.4.min.js'], function() {
+		// 	console.log( 'jQuery 버전 : ', jQuery.fn.jquery );
+		// 	$('body').html('<div id="header"><article><ul><li><a href="">item</a></li><li><a href="">item</a></li><li><a href="">item</a></li></ul></article></div>');
+		// });
+	</script>
+
+
+
+	<!-- Javascript 모듈 -->
+	<!--
+	<script src="js/modules/module-Counter.js"></script>
+	<script src="js/modules/module-DataManager.js"></script>
+	<script src="js/modules/module-Type.js"></script>
+	<script src="js/modules/module-Events.js"></script>
+	<script src="js/modules/module-DOM.js"></script>
+	<script src="js/modules/module-DOM.css.js"></script>
+	<script src="js/vender/modernizr-custom.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	 -->
+</head>
+<body>
+
+	<!-- HTML5 Audio File Play/Pause Control -->
+	<!-- <audio controls src="media/We The Kings -Say You Like Me.oga"></audio> -->
+
+<!--
+<script>
+(function(global){
+	'use strict';
+
+	// Create Audio Object
+	var body  = document.querySelector('body'),
+		audio = document.createElement('audio'); // new Audio();
+
+	// Can Play Type of Audio ?
+	// MP3? or OGA?
+	var supportMP3 = !!audio.canPlayType('audio/mpeg');
+
+
+	// Audio set Properties
+	audio.setAttribute('src', 'media/We The Kings -Say You Like Me.' + (supportMP3 ? 'mp3' : 'oga') );
+	audio.setAttribute('controls', 'controls');
+
+	// Log Audio Object
+	console.log( audio );
+
+	audio.user_audioPlay = !true;
+
+	audio.oncanplay = function() {
+		if (this.user_audioPlay) {
+			this.play();
+		}
+	}
+
+	// Append to Body Element Node
+	body.appendChild( audio );
+})(this);
+</script>
+-->
+</body>
+</html>
