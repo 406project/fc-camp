@@ -2,6 +2,11 @@
 @import url("base/reset.css");
 @import url("base/common.css");
 
+body {
+	margin-top: 100px;
+	line-height: 1.5;
+}
+
 .container {
 	position:     relative;
 	width:        960px;
