@@ -4,13 +4,13 @@
 
 ### 강의 요약
 
-- [1일차](SUMMARY/01.md)
-- [2일차](SUMMARY/02.md)
-- [3일차](SUMMARY/03.md)
-- [4일차](SUMMARY/04.md)
-- [5일차](SUMMARY/05.md)
-- [6일차](SUMMARY/06.md)
-- [7일차](SUMMARY/07.md)
-- [8일차](SUMMARY/08.md)
-- [9일차](SUMMARY/09.md)
-
+- [01일차](SUMMARY/01.md)
+- [02일차](SUMMARY/02.md)
+- [03일차](SUMMARY/03.md)
+- [04일차](SUMMARY/04.md)
+- [05일차](SUMMARY/05.md)
+- [06일차](SUMMARY/06.md)
+- [07일차](SUMMARY/07.md)
+- [08일차](SUMMARY/08.md)
+- [09일차](SUMMARY/09.md)
+- [10일차](SUMMARY/10.md)
