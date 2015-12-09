@@ -1,0 +1,22 @@
+// SCSS 문법
+
+/**
+ * SCSS 주석이지만, CSS 코드로 변경되어 출력됩니다.
+ */
+
+#app {
+	width: 80%;
+	margin: 0 auto;
+	// margin-left: auto;
+	// margin-right: auto;
+
+	header {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		padding: 1.2em;
+		background-color: rgba(#3F2AC4, 0.8);
+		color: #fff;
+	}
+}
