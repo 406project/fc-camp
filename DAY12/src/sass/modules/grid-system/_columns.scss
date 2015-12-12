@@ -7,11 +7,12 @@
 .columns {
 	background-image: linear-gradient(
 		90deg,
-		transparent 0%,
-		transparent 10%,
-		red 10%,
-		red 90%,
-		transparent 90%,
-		transparent 100%
-	)
+		$gutter-color 0%,
+		$gutter-color 10%,
+		$column-color 10%,
+		$column-color 90%,
+		$gutter-color 90%,
+		$gutter-color 100%
+	);
+	background-size: $column-width 1px;
 }

@@ -1,0 +1,98 @@
+/**
+ * CSS3 믹스인 정의
+ * box-sizing
+ * background-clip
+ * backgoround-origin
+ * border-radius
+ * transition
+ * box-shadow
+ * animation
+ * keyframes
+ * transform
+ * --------------------------------
+ */
+
+// SCSS 문법
+// 믹스인 정의
+// @mixin box-sizing( $box: border-box ) {
+// 	-webkit-box-sizing: $box;
+// 	-moz-box-sizing: $box;
+// 	box-sizing: $box;
+// }
+
+// 믹스인 호출
+// .box {
+// 	@include box-sizing();
+// }
+
+// Sass 문법
+// 믹스인 정의
+=box-sizing( $box: border-box )
+	@if $webkit == true
+		-webkit-box-sizing: $box
+	@if $moz == true
+		-moz-box-sizing:    $box
+	box-sizing:         $box
+
+=border-radius( $radius: 3px )
+	@if $webkit == true
+		-webkit-border-radius: $radius
+	@if $moz == true
+		-moz-border-radius:    $radius
+	border-radius:         $radius
+
+=background-clip( $clip: padding-box )
+	@if $webkit == true
+		-webkit-background-clip: $clip
+	@if $moz == true
+		-moz-background-clip:    $clip
+	background-clip:         $clip
+
+=background-origin( $origin: padding-box )
+	@if $webkit == true
+		-webkit-background-origin: $origin
+	@if $moz == true
+		-moz-background-origin:    $origin
+	background-origin:         $origin
+
+=transition( $props... )
+	@if $webkit == true
+		-webkit-transition: $props
+	@if $moz == true
+		-moz-transition:    $props
+	transition:         $props
+
+=box-shadow( $props... )
+	@if $webkit == true
+		-webkit-box-shadow: $props
+	@if $moz == true
+		-moz-box-shadow:    $props
+	box-shadow:         $props
+
+=transform( $trans: null )
+	// Sass 조건문 @if
+	@if $trans == null
+		// Sass 보간법(Interpolation)
+		@warn "$trans 전달인자 값이 #{$trans}입니다. 정상적인 값을 전달해주세요."
+	@if $webkit == true
+		-webkit-transform: $trans
+	@if $moz == true
+		-moz-transform:    $trans
+	transform:         $trans
+
+=animation( $anim: null )
+	@if $webkit == true
+		-webkit-animation: $anim
+	@if $moz == true
+		-moz-animation: $anim
+	animation:         $anim
+
+=keyframes( $anim-name: null )
+	@if $webkit == true
+		-webkit-keyframes #{$anim-name}
+			@content
+	@if $moz == true
+		@-moz-keyframes #{$anim-name}
+			@content
+	@keyframes #{$anim-name}
+		@content
