@@ -1,0 +1,17 @@
+// Grid unit 설정
+// 100%
+// 0%-10% transparent
+// 10%-90% unit-color
+// 90%-100% transparent
+
+.columns {
+	background-image: linear-gradient(
+		90deg,
+		transparent 0%,
+		transparent 10%,
+		red 10%,
+		red 90%,
+		transparent 90%,
+		transparent 100%
+	)
+}
