@@ -1,0 +1,20 @@
+#app
+	min-height: 100vh
+
+	.header
+		height: 200px
+		background: $point-color
+		color: darken( $point-color, 20% )
+
+		.primary
+			@extend %button
+
+		.secondary
+			@extend %button
+			@extend %rounder
+
+	.brand a
+		display: block
+		text-decoration: none
+		color: lighten( $point-color, 30% )
+		font-size: 32px

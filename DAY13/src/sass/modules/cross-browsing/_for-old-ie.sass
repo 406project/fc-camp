@@ -1,0 +1,36 @@
+//
+ * --------------------------------
+ * 크로스 브라우징을 위한 믹스인 정의
+ * --------------------------------
+// 기본 값 설정
+$ie6:    false !default
+$ie7:    false !default
+$ie8:    false !default
+$lt-ie8: false !default
+$lt-ie9: false !default
+
+=ie6()
+	@if $ie6
+		* html &
+			@content
+
+=ie7()
+	@if $ie7
+		*+html &
+			@content
+
+=ie8()
+	@if $ie8
+		@media \0screen
+			&
+				@content
+
+=lt-ie8()
+	@if $lt-ie8
+		html > /**/ body &
+			@content
+
+=lt-ie9()
+	@if $lt-ie9
+		body:last-child &
+			@content
