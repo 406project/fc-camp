@@ -2,5 +2,12 @@
  * 환경설정 모듈
  * --------------------------------
  */
-@import config
-@import modules/study/loop
+// @import config
+// @import modules/study/loop
+@import modules/yamoo9-libs/mixins/position
+
+.app-header
+	+relative(z-index 1000)
+
+	.app-logo
+		+absolute(top 100px left 100px z-index 20)

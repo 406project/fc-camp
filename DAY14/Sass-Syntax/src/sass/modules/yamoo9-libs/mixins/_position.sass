@@ -1,0 +1,61 @@
+//
+ * --------------------------------
+ * Sass 고급 믹스인 정의
+ * position()
+ * --------------------------------
+$position-attrs: top right bottom left z-index
+=position( $type, $args )
+	position: $type
+
+	// $args 데이터 유형
+	// 유효성 검사
+	$type-args: type-of($args)
+	@if $type-args != 'list'
+		@error '전달된 $arg 변수는 데이터 유형이 #{$type-args} 입니다. list 유형으로 전달해주세요'
+
+	// $args 리스트라면
+	// 리스트의 첫번째 인자 값
+	$type-arg-first: type-of( nth($args, 1) )
+	// 0. 문자일 경우
+	@if ( $type-arg-first == 'string' )
+		// @debug '문자 유형'
+		@each $attr in $position-attrs
+			$index: index($args, $attr)
+			@if type-of( $index ) != 'null'
+				$value: nth($args, $index + 1)
+				#{$attr}: $value
+
+
+	// 1. 숫자일 경우
+	// 2. null일 경우
+	@if ( $type-arg-first == 'number' or $type-arg-first == 'null' )
+		// @debug '숫자 또는 null 유형'
+		$top:     nth($args, 1)
+		$right:   if(nth($args, 2), nth($args, 2), null)
+		$bottom:  if(nth($args, 3), nth($args, 3), null)
+		$left:    if(nth($args, 4), nth($args, 4), null)
+		$z-index: if(nth($args, 5), nth($args, 5), null)
+
+		top:     $top
+		right:   $right
+		bottom:  $bottom
+		left:    $left
+		z-index: $z-index
+
+
+// ------------------------------------------------------------------------
+
+$default: null null null null null
+
+// position() 단축 믹스인
+=static($args: $default)
+	+position(static, $args)
+
+=relative( $args: $default )
+	+position(relative, $args)
+
+=absolute( $args: $default )
+	+position(absolute, $args)
+
+=fixed( $args: $default )
+	+position(fixed, $args)

@@ -47,7 +47,16 @@
  * --------------------------------
  */
 
-$image-icon-path: 'images/icons/buttons'
+
+/**
+ * Sass List Function
+ * - length()
+ * - nth()
+ * - append()
+ * --------------------------------
+ */
+
+$image-icon-path: 'images/buttons'
 
 $button-list: ('pause', 'stop', 'prev', 'next', 'init')
 $button-list: append($button-list, 'play')
@@ -56,15 +65,54 @@ $button-list: append($button-list, 'leave')
 $button-list: append($button-list, 'click')
 
 $button-list-count: length($button-list)
-$i: 1
+
 
 %no-repeat
 	background-repeat: no-repeat
 
-@while $i <= $button-list-count
-	// @debug $i
-	$button-name: nth($button-list, $i)
+// While 사례
+// $i: 1
+// @while $i <= $button-list-count
+// 	// @debug $i
+// 	$button-name: nth($button-list, $i)
+// 	.icon-button-#{$button-name}
+// 		background-image: url( "#{$image-icon-path}/#{$button-name}" )
+// 		@extend %no-repeat
+// 	$i: $i + 1
+
+// For 사례
+// @for $i from 1 through $button-list-count
+// 	// @debug $i
+// 	$button-name: nth($button-list, $i)
+// 	.icon-button-#{$button-name}
+// 		background-image: url( "#{$image-icon-path}/#{$button-name}" )
+// 		@extend %no-repeat
+// 		// background-repeat: no-repeat
+
+// @each 사례
+$list: ul ol li dl dt dd
+// @debug type-of($list)
+// @each $button-name in $button-list
+	// @debug $button-name
 	.icon-button-#{$button-name}
 		background-image: url( "#{$image-icon-path}/#{$button-name}" )
 		@extend %no-repeat
-	$i: $i + 1
+
+/**
+ * Sass Map (like Object)
+ * --------------------------------
+ */
+@import map
+
+// 맵 유형 체크
+// @debug type-of($buttons)
+
+// 맵을 처리하는 함수
+// http://sass-lang.com/documentation/Sass/Script/Functions.html#map-functions
+
+// @debug type-of( map-get($buttons, stop) )
+
+// $play-map: map-get($buttons, play)
+// $stop-map: map-get($buttons, stop)
+
+// @debug map-get($stop-map, extension)
