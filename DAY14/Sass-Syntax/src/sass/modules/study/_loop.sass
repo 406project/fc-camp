@@ -1,0 +1,70 @@
+/**
+ * Sass 조건문
+ * @if ~ @else
+ * @else if
+ *
+ * if() 함수
+ * Javascript의 3항식과 유사
+ * gulp-if 모듈의 처리와 유사
+ * if(조건, 참, 거짓)
+ * g_if(condition, true, false)
+ * --------------------------------
+ */
+
+
+ /**
+  * Sass - Loop
+  * @while
+  * @for
+  * @each
+  * --------------------------------
+  */
+
+// 초기 변수
+// $i: 1
+
+// @while $i < 10
+// 	body:after
+// 		content: 'pseudo content: #{$i}'
+// 	$i: $i + 2
+
+// through: ~까지
+// to: ~전까지
+// @for $i from 1 through 10
+// 	body:after
+// 		content: 'pseudo content: #{$i}'
+
+/**
+ * Sass 데이터 유형
+ * 숫자
+ * 문자
+ * 논리
+ * 함수
+ * 컬러
+ * 리스트(배열)
+ * 맵(객체)
+ * null
+ * --------------------------------
+ */
+
+$image-icon-path: 'images/icons/buttons'
+
+$button-list: ('pause', 'stop', 'prev', 'next', 'init')
+$button-list: append($button-list, 'play')
+$button-list: append($button-list, 'enter')
+$button-list: append($button-list, 'leave')
+$button-list: append($button-list, 'click')
+
+$button-list-count: length($button-list)
+$i: 1
+
+%no-repeat
+	background-repeat: no-repeat
+
+@while $i <= $button-list-count
+	// @debug $i
+	$button-name: nth($button-list, $i)
+	.icon-button-#{$button-name}
+		background-image: url( "#{$image-icon-path}/#{$button-name}" )
+		@extend %no-repeat
+	$i: $i + 1

@@ -1,0 +1,45 @@
+.footer
+	width: 80%
+	height: 200px
+	background: $base-gray-color
+	// +box-sizing()
+	// +border-radius(50%)
+	// +background-clip(content-box)
+	// +background-origin()
+	// +transition()
+	// +box-shadow(1px 1px 3px red, -1px -1px 3px blue)
+	// +transform(  )
+	+animation( fade-in 0.4s ease-in-out )
+
+	[role="button"]
+		@extend %button
+		@extend %round
+		+transition(all 0.6s ease-out)
+		text-decoration: none
+		color: $point-color
+
+		&:hover,
+		&:focus
+			background: darken($point-color, 20%)
+			color: lighten($point-color, 20%)
+		&:focus
+			outline: none
+
+
++keyframes(fade-in)
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
++keyframes(bounce)
+	0%
+		top: 0
+	25%
+		top: 10px
+	50%
+		top: -10px
+	75%
+		top: 10px
+	100%
+		top: 0px
