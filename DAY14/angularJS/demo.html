@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>AngularJS - Color Pallette App</title>
+	<style>
+		.app-radio-group ul {
+			list-style: none;
+			padding-left: 0;
+		}
+		.app-radio-group label {
+			padding: 0.4em 1em 0.4em 0.6em;
+			display: inline-block;
+			vertical-align: top;
+			/* IE 7 이하 브라우저 핵 */
+			zoom: 1;
+			*display: inline;
+			margin-bottom: 6px;
+			color: #fff;
+			border-radius: 4px;
+		}
+		.app-radio-group label.darkred {
+			background-color: #bc2e2e;
+		}
+		.app-radio-group label.vividgreen {
+			background-color: #3bccb2;
+		}
+		.app-radio-group label.grayyellow {
+			background-color: #eedd1a;
+		}
+		.app-radio-group label.purple {
+			background-color: #8c1dea;
+		}
+		.app-radio-group input[type=radio] {
+			vertical-align: 3px;
+		}
+		body {
+			min-height: 100vh;
+			background: #fff;
+		}
+	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+</head>
+<body data-ng-init=" selected_color='#8c1dea' " style="background-color: {{ selected_color }}">
+
+	<div class="app-radio-group">
+		<ul>
+			<li>
+				<label class="darkred">
+					<input type="radio" data-ng-model="selected_color" name="color-chip" value="#bc2e2e">
+					Dark Red
+				</label>
+			</li>
+			<li>
+				<label class="vividgreen">
+					<input type="radio" data-ng-model="selected_color" name="color-chip" value="#3bccb2">
+					Vivide Green
+				</label>
+			</li>
+			<li>
+				<label class="grayyellow">
+					<input type="radio" data-ng-model="selected_color" name="color-chip" value="#eedd1a">
+					Gray Yellow
+				</label>
+			</li>
+			<li>
+				<label class="purple">
+					<input type="radio" data-ng-model="selected_color" name="color-chip" value="#8c1dea">
+					Purple
+				</label>
+			</li>
+		</ul>
+
+		<p>
+			{{ selected_color }}
+		</p>
+	</div>
+
+	<!-- label
+	input:radio * 4
+	[ #bc2e2e, #3bccb2, #eedd1a, #8c1dea ] -->
+
+</body>
+</html>

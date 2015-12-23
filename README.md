@@ -16,3 +16,5 @@
 - [10일차](SUMMARY/10.md)
 - [11일차](SUMMARY/11.md)
 - [12일차](SUMMARY/12.md)
+- [13일차](SUMMARY/13.md)
+- [14일차](SUMMARY/14.md)

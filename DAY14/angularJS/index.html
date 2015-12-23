@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-ng-app>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>AngularJS Application</title>
+	<!-- Local -->
+	<script src="js/vender/angular-1.2.29.min.js"></script>
+	<!-- CDN: angularjs.org -->
+	<!-- <script src="//code.angularjs.org/1.4.8/angular.min.js"></script> -->
+	<!-- CDN: google -->
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+
+	<!-- jQuery 예제 -->
+	<!-- <script src="js/components/jquery/dist/jquery.min.js"></script> -->
+	<!-- <script>
+		jQuery.noConflict(true)(function($) {
+			// 'use strict';
+
+			var $twb = $('#twb'),
+				$twb_binding_para = $('#twb-binding-para'),
+				init_value = 'hi';
+
+			var init = function() {
+				$twb.on('keyup', keyupFn );
+			};
+
+			function keyupFn(evt) {
+				$twb_binding_para.text( evt.target.value );
+			}
+
+			init();
+
+		});
+	</script> -->
+</head>
+<body>
+
+	<!--
+		AngularJS: 애플리케이션 초기화
+		- ngApp
+		- ngInit
+
+		AngularJS: 양방향 데이터 바인딩
+		- ngModel <-> ngBind / Expression {{}}
+		- ngModel <-> ngShow
+	-->
+
+	<div class="demo" data-ng-controller="DataBidingController as dbCtrl">
+
+		<!-- Controller $scope 객체의 people 속성 값을 가져오는 경우 -->
+		<!-- <p data-ng-bind="people[2].name"></p> -->
+
+		<!-- Controller에서 people 값을 가져오는 경우 -->
+		<!-- <pre>{{dbCtrl.people}}</pre> -->
+
+		<input placeholder="원하는 정보를 입력해주세요" data-ng-model="twb">
+		<input type="checkbox" data-ng-model="isShowing">
+		<!-- 지시자 ngBind -->
+		<p data-ng-bind="twb">지시자</p>
+		<!-- 표현식 Expression -->
+		<p data-ng-show="isShowing">표현식 {{twb}}</p>
+	</div>
+
+	<!-- <div class="demo">
+		<input id="twb" placeholder="원하는 정보를 입력해주세요">
+		<p id="twb-binding-para"></p>
+	</div> -->
+
+<script>
+
+	// 컨트롤러 함수 설정
+	function DataBidingController( $scope ) {
+
+		// People 모델
+		var People = [
+			{
+				'name': 'trevi',
+				'age':  23
+			},
+			{
+				'name': 'apple mouse',
+				'age':  6
+			},
+			{
+				'name': 'persnal computer',
+				'age':  56
+			}
+		];
+
+		// this.twb = 'trevi는 청량하다.';
+		// this.isShowing = !false;
+		// console.log(this);
+		$scope.twb = 'trevi는 청량하다.';
+		$scope.isShowing = !false;
+
+		this.people = People;
+		$scope.people = People;
+	}
+</script>
+</body>
+</html>
