@@ -11,51 +11,33 @@
 	<link rel="stylesheet"= href="css/style.css">
 	<script src="js/app-bundle.js"></script>
 </head>
-<body
-	style="background: {{color_chip}}"
-	data-ng-init="toggle_color_control_radio_group=true; color_chip='red'; app_name='AngularJS + Browserify + Gulp Bundling!!'">
+<body data-ng-init="controls={ notice: true, language: 'sp' }">
 
-	<!--
-	ngApp
-	ngInit
-	ngModel
-	ngBind
-	ngShow
-	ngHide
-	ngClick
-	-->
+	<div id="app">
+		<header data-ng-switch="controls.language">
+			<div class="notice" data-ng-show="controls.notice">Notification</div>
+			<div
+				lang="ru"
+				data-ng-switch-when="ru">
+				Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</div>
+			<div
+				lang="sp"
+				data-ng-switch-when="sp">
+				Mujer uno dolor más de, poder mismo si. Volutas, sintió.</div>
+			<div
+				lang="en"
+				data-ng-switch-default>Lo
+				rem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, ea?</div>
+		</header>
 
-	<h1>{{app_name}}</h1>
-
-	<div role="group">
-		<button
-			type="button"
-			data-ng-click="toggle_color_control_radio_group=!toggle_color_control_radio_group"
-		>toggle Checbox Component</button>
+		<main>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti quaerat adipisci facilis nobis libero quisquam consectetur, ducimus necessitatibus magni vel vitae culpa ea cumque optio, beatae sunt repellat velit deleniti asperiores soluta error excepturi quis, molestiae laborum, ratione. Corporis deleniti error tenetur, nobis aliquid, perferendis, voluptatem doloribus natus nemo pariatur aut quibusdam aliquam magnam voluptates dicta, quos molestias quidem facilis et ipsum explicabo officiis. A inventore odio ipsam delectus, illum alias ea voluptatem distinctio vel maiores optio sequi, consequuntur dicta cupiditate odit qui nesciunt sapiente exercitationem saepe. Dicta, velit, sint reiciendis fuga esse quam a. Quod repudiandae quos exercitationem eaque voluptate suscipit dolores laborum, officiis numquam recusandae possimus impedit eius, corrupti dignissimos. Eaque blanditiis, doloribus voluptatem voluptatum animi, excepturi quia harum, optio eos ex soluta tempore! Delectus quae vel aliquam fugit magnam ut dolor quam commodi officiis, accusantium repudiandae similique provident quos fugiat nihil modi autem sit quidem dolores, libero cum qui. Nostrum earum voluptatum assumenda voluptatibus iste minima nesciunt laudantium officia similique debitis tempore in iure, ducimus quasi voluptate obcaecati vel inventore sed ipsum ab aliquid, ipsam corporis? Tempora aut eius, asperiores. Autem maiores eaque culpa quam eos vitae enim modi quos eum assumenda quasi debitis non, in unde.</p>
+			<p>Enim accusantium blanditiis eligendi quis iure error sit laudantium repellendus autem minima voluptas voluptatibus ea inventore adipisci itaque, quo magnam, a architecto, placeat sed quaerat maiores aut beatae, assumenda laborum. Tempore nihil, laborum illum ad error accusamus, dolore eligendi similique culpa, enim accusantium quaerat odit deserunt quas maxime incidunt nam doloremque! Obcaecati, harum, officiis. Praesentium, quo, omnis molestias eveniet modi ex suscipit cupiditate, iste, non illo neque odio. Asperiores libero error at nulla incidunt blanditiis cumque fuga accusantium quas, reprehenderit praesentium quos ipsam odit accusamus id, magnam explicabo architecto consectetur optio temporibus! Temporibus impedit rem distinctio earum maxime iure explicabo modi dolorem doloribus voluptate minus asperiores nihil id recusandae cupiditate inventore qui, et atque. Laborum delectus assumenda reiciendis error architecto at quisquam, sint molestiae facere iusto optio, necessitatibus earum, quae magnam amet. Illo fuga nisi laboriosam dignissimos ducimus, nesciunt obcaecati fugiat, doloremque qui, soluta suscipit quia incidunt ipsum. Fuga sunt sed laboriosam dignissimos beatae ipsam dolorem fugiat atque cumque ipsum. Numquam deserunt placeat, optio quam distinctio officiis, error, molestias nemo eaque odio amet quas quae. Libero cupiditate aliquid delectus, architecto. Quisquam beatae hic id eveniet odio, quod illum perspiciatis. Quod earum obcaecati provident, dolore esse facilis rem necessitatibus impedit, quas.</p>
+			<p>Dignissimos praesentium recusandae asperiores vitae libero iste, saepe perspiciatis maxime. Expedita cumque reiciendis eos illum possimus ipsa vel commodi sapiente velit consequuntur, assumenda eaque veniam aspernatur repellendus, aut sint cupiditate. Vel placeat sit, inventore. Sed nihil quae dolor fugit, eaque minus eius dolorem quibusdam, deleniti tempore unde possimus repellat rerum, expedita ullam. Incidunt, consequuntur aliquid obcaecati perferendis, nam autem itaque provident, et, maxime in inventore. Sequi eos, odio officia sed dolore id rem nemo, ut possimus ducimus quisquam aliquam reiciendis quis, dignissimos tempore fugiat nihil, doloremque amet eaque. Numquam amet illum dignissimos quod, vel, rem excepturi ad. Veritatis explicabo quaerat, tempora doloremque qui quam ipsam illum reprehenderit, culpa eos in quos officia. Deleniti facilis fuga, libero molestiae itaque doloremque soluta veritatis, voluptatum rerum blanditiis autem, a consectetur repellat esse repudiandae. Quibusdam laborum consequuntur corporis sed incidunt enim est nemo necessitatibus, molestiae velit reprehenderit provident adipisci ipsa quas sit? Saepe ea aliquam dolor recusandae repellendus deleniti consectetur, itaque magnam id reiciendis, possimus facilis cupiditate qui, eaque, laboriosam vero architecto sapiente. Amet cumque dignissimos vel odio, recusandae quos perspiciatis tempore harum temporibus ratione enim magni repudiandae facilis porro veniam aperiam. Nesciunt quasi odit exercitationem est quos, ut consequuntur eos tempora quae. Cupiditate.</p>
+			<p>Impedit, fugiat deleniti atque consequatur ad minus tempore, nulla quo corrupti, quas ut quod odio aliquid iusto corporis saepe possimus similique suscipit pariatur sed quos illum! Nostrum amet ea excepturi aperiam similique consectetur suscipit fuga, maiores provident corporis necessitatibus perspiciatis sequi quam officia eligendi eius voluptas iste animi fugit est! Quibusdam repellendus cumque temporibus libero, porro sunt tempora repudiandae, a necessitatibus quasi laboriosam nemo alias consequuntur itaque sequi voluptas aperiam voluptatem labore! Vero odio itaque porro dolores libero in neque animi accusamus expedita qui consequatur debitis, iusto at similique maxime mollitia magnam eum minus iure est totam consectetur suscipit dolore ducimus amet. Illum corporis, vel explicabo rem praesentium, deleniti fuga sed obcaecati eos totam facilis, molestiae a perferendis nam possimus culpa? Nisi in eum, obcaecati vel adipisci eligendi expedita nulla inventore cupiditate! Hic iusto cumque modi harum voluptatem, ducimus accusamus consectetur eum fugiat, ad, est blanditiis, tempore placeat. Doloremque laudantium unde architecto amet voluptate. Minus veritatis voluptates ab, temporibus cum laborum rerum eos, veniam, quia corrupti doloremque officiis vel dignissimos consequuntur. Ut tempora doloribus quaerat, reiciendis eos alias dignissimos quam minus, velit a harum sunt amet illo, debitis! Eum totam earum corporis culpa aperiam, voluptate perspiciatis natus quae, doloremque error.</p>
+		</main>
 	</div>
 
-	<label>
-		<input type="checkbox" data-ng-model="toggle_color_control_radio_group">
-		<span data-ng-hide="toggle_color_control_radio_group">show</span>
-		<span data-ng-show="toggle_color_control_radio_group">hide</span>
-		Color Control Radio Group
-	</label>
-
-	<div data-ng-show="toggle_color_control_radio_group">
-		<ul>
-			<li>
-				<label><input type="radio" value="red" data-ng-model="color_chip"> red</label>
-			</li>
-			<li>
-				<label><input type="radio" value="green" data-ng-model="color_chip"> green</label>
-			</li>
-			<li>
-				<label><input type="radio" value="blue" data-ng-model="color_chip"> blue</label>
-			</li>
-		</ul>
-
-		<p data-ng-bind="color_chip"></p>
-	</div>
 
 </body>
 </html>
