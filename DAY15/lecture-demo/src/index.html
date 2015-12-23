@@ -11,9 +11,51 @@
 	<link rel="stylesheet"= href="css/style.css">
 	<script src="js/app-bundle.js"></script>
 </head>
-<body data-ng-init="app_name='AngularJS + Browserify Bundling!!'">
+<body
+	style="background: {{color_chip}}"
+	data-ng-init="toggle_color_control_radio_group=true; color_chip='red'; app_name='AngularJS + Browserify + Gulp Bundling!!'">
+
+	<!--
+	ngApp
+	ngInit
+	ngModel
+	ngBind
+	ngShow
+	ngHide
+	ngClick
+	-->
 
 	<h1>{{app_name}}</h1>
+
+	<div role="group">
+		<button
+			type="button"
+			data-ng-click="toggle_color_control_radio_group=!toggle_color_control_radio_group"
+		>toggle Checbox Component</button>
+	</div>
+
+	<label>
+		<input type="checkbox" data-ng-model="toggle_color_control_radio_group">
+		<span data-ng-hide="toggle_color_control_radio_group">show</span>
+		<span data-ng-show="toggle_color_control_radio_group">hide</span>
+		Color Control Radio Group
+	</label>
+
+	<div data-ng-show="toggle_color_control_radio_group">
+		<ul>
+			<li>
+				<label><input type="radio" value="red" data-ng-model="color_chip"> red</label>
+			</li>
+			<li>
+				<label><input type="radio" value="green" data-ng-model="color_chip"> green</label>
+			</li>
+			<li>
+				<label><input type="radio" value="blue" data-ng-model="color_chip"> blue</label>
+			</li>
+		</ul>
+
+		<p data-ng-bind="color_chip"></p>
+	</div>
 
 </body>
 </html>

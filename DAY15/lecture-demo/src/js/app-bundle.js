@@ -38239,9 +38239,7 @@ return jQuery;
 var angular = require('angular'),
 	jQuery  = require('jquery');
 
-jQuery.noConflict(true)(function($){
-	console.log($.fn.jquery);
-});
+
 
 },{"angular":2,"jquery":3}]},{},[4])
 
