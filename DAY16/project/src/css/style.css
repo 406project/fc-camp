@@ -1,0 +1,28 @@
+.radio-group {
+	margin-top: 10px;
+}
+
+.radio-group label:first-child {
+	margin-right: 5px;
+}
+
+.radio-group input {
+	vertical-align: 1px;
+}
+
+
+.list-view li:first-child {
+	margin-top: 10px;
+}
+
+.list-view li {
+	margin-bottom: 20px;
+}
+
+.list-view .media-body h5 {
+	margin-top: 0;
+}
+
+.list-view img {
+	width: 140px;
+}
