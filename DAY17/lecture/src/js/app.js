@@ -1355,6 +1355,11 @@ var LoofController = function($scope) {
 
 	$scope.search = {};
 
+	$scope.sort_option = 'user.username';
+
+
+
+
 	// 컨트롤러 스코프 내에 함수 정의
 	$scope.selectedUser = function( person ) {
 		// $scope.selected_index = index;

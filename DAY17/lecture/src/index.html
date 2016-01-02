@@ -43,6 +43,15 @@
 								<input type="text" class="form-control" placeholder="Search Email" data-ng-model="search.user.email">
 							</label>
 						</div> -->
+						<div class="form-group">
+							<i class="glyphicon glyphicon-sort-by-attributes" aria-label="Sorting with Attribute"></i>
+							<select class="form-control" data-ng-model="sort_option">
+								<option value="user.username">Name (ASC)</option>
+								<option value="-user.username">Name (DSC)</option>
+								<option value="user.email">Email (ASC)</option>
+								<option value="-user.email">Email (DSC)</option>
+							</select>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -65,12 +74,33 @@
 								</th>
 								<th scope="col">
 									Username
+									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.username' ? '-user.username' : 'user.username')">
+										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									</a>
+									<!-- <a href role="button" data-ng-click="sort_option = 'user.username'">
+										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
+									</a>
+									<a href role="button" data-ng-click="sort_option = '-user.username'">
+										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
+									</a> -->
 								</th>
 								<th scope="col">
 									Name
+									<a href role="button" data-ng-click="sort_option = 'user.name.first'">
+										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
+									</a>
+									<a href role="button" data-ng-click="sort_option = '-user.name.first'">
+										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
+									</a>
 								</th>
 								<th scope="col">
 									Email
+									<a href role="button" data-ng-click="sort_option = 'user.email'">
+										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
+									</a>
+									<a href role="button" data-ng-click="sort_option = '-user.email'">
+										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
+									</a>
 								</th>
 								<th scope="col">
 									Phone
@@ -86,7 +116,7 @@
 						</tr>
 						<!-- tbody -->
 						<tr
-							data-ng-repeat="user_obj in users | filter:search"
+							data-ng-repeat="user_obj in users | filter:search | orderBy:sort_option"
 							data-ng-click="selectedUser( user_obj )"
 							data-ng-class="{
 								'selected': selected_user.email === user_obj.user.email
