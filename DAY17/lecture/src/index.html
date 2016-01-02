@@ -11,15 +11,104 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div id="app" data-ng-controller="LoofController">
+
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="" class="navbar-brand">
+						{{app_name}}
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- <pre>{{LoofCtrl.users | json}}</pre> -->
+
 		<div class="container">
-			<div class="navbar-header">
-				<a href="" class="navbar-brand">
-					{{app_name}}
-				</a>
+			<div class="row">
+				<div class="col-md-8">
+					<table class="user-table table table-hover table-bordered">
+						<caption class="a11y-hidden">randomuser.me 사용자 정보 표</caption>
+						<thead>
+							<tr>
+								<th scope="col">
+									Number
+								</th>
+								<th scope="col">
+									Picture
+								</th>
+								<th scope="col">
+									Username
+								</th>
+								<th scope="col">
+									Name
+								</th>
+								<th scope="col">
+									Email
+								</th>
+								<th scope="col">
+									Phone
+								</th>
+							</tr>
+						</thead>
+						<tr
+							data-ng-hide="true"
+							data-ng-repeat="(index, obj) in users"
+							>
+							<td>{{'index: ' + index}}</td>
+							<td>{{'obj: ' + obj}}</td>
+						</tr>
+						<!-- tbody -->
+						<tr
+							data-ng-repeat="user_obj in users"
+							data-ng-click="selectedUser( $index )"
+							data-ng-style="{
+								'background-color': (selected_index === $index ? 'yellow' : '')
+							}"
+						>
+							<!-- <td><pre>{{user_obj.user | json}}</pre></td> -->
+							<td>
+								{{$index+1}}
+							</td>
+							<td>
+								<img src="#" width="80" height="80" data-ng-src="{{ user_obj.user.picture.thumbnail }}" alt="{{user_obj.user.username}}">
+							</td>
+							<td>{{ user_obj.user.username }}</td>
+							<td>{{ user_obj.user.name.first }} {{ user_obj.user.name.last }}</td>
+							<td>{{ user_obj.user.email }}</td>
+							<td>{{ user_obj.user.phone }}</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">User Info Details</h3>
+						</div>
+						<div class="panel-body details-panel">
+							<!-- <pre>{{ users[selected_index].user | json }}</pre> -->
+							<dl>
+								<dt>Name</dt>
+								<dd data-ng-bind="users[selected_index].user.name.first + ' ' +users[selected_index].user.name.last"></dd>
+								<dt>Gender</dt>
+								<dd data-ng-bind="users[selected_index].user.gender"></dd>
+								<dt>Email</dt>
+								<dd>{{users[selected_index].user.email}}</dd>
+								<dt>Location</dt>
+								<dd>{{users[selected_index].user.location.state + ' ' + users[selected_index].user.location.city + ' ' + users[selected_index].user.location.street}}</dd>
+								<dt>Phone</dt>
+								<dd>{{users[selected_index].user.phone}}</dd>
+								<dt>Cell</dt>
+								<dd>{{users[selected_index].user.cell}}</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</nav>
+
+	</div>
 
 </body>
 </html>
