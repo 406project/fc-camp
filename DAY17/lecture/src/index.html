@@ -16,7 +16,8 @@
 		<nav class="header-bar navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="" class="navbar-brand">
+					<a href="/" class="navbar-brand">
+						<img src="images/AngularJS-Shield-large.png" width="37.45" height="39.7" alt="">
 						{{app_name}}
 					</a>
 				</div>
@@ -61,7 +62,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-9">
 					<table class="user-table table table-hover table-bordered">
 						<caption class="a11y-hidden">randomuser.me 사용자 정보 표</caption>
 						<thead>
@@ -86,24 +87,36 @@
 								</th>
 								<th scope="col">
 									Name
-									<a href role="button" data-ng-click="sort_option = 'user.name.first'">
+									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.name.first' ? '-user.name.first' : 'user.name.first')">
+										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									</a>
+									<!-- <a href role="button" data-ng-click="sort_option = 'user.name.first'">
 										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
 									</a>
 									<a href role="button" data-ng-click="sort_option = '-user.name.first'">
 										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
-									</a>
+									</a> -->
 								</th>
 								<th scope="col">
 									Email
-									<a href role="button" data-ng-click="sort_option = 'user.email'">
+									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.email' ? '-user.email' : 'user.email')">
+										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									</a>
+									<!-- <a href role="button" data-ng-click="sort_option = 'user.email'">
 										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
 									</a>
 									<a href role="button" data-ng-click="sort_option = '-user.email'">
 										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
-									</a>
+									</a> -->
 								</th>
 								<th scope="col">
 									Phone
+									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.phone' ? '-user.phone' : 'user.phone')">
+										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									</a>
+								</th>
+								<th scope="col">
+									Details
 								</th>
 							</tr>
 						</thead>
@@ -140,10 +153,11 @@
 							<td>{{ user_obj.user.name.first }} {{ user_obj.user.name.last }}</td>
 							<td>{{ user_obj.user.email }}</td>
 							<td>{{ user_obj.user.phone }}</td>
+							<td><a href role="button" data-ng-click="selectedUser( user_obj )">show info</a></td>
 						</tr>
 					</table>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3 scrolled-fixed">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">User Info Details</h3>

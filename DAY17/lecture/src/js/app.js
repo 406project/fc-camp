@@ -9,10 +9,42 @@ require('angular');
 // ------------------------------
 // jQuery
 // ------------------------------
-// jQuery.noConflict(true)(function($) {
-// 	console.log($().jquery);
-// 	$('body').append('<p>jQuery 로딩...</p>');
-// });
+jQuery.noConflict(true)(function($) {
+	var $window               = $(window),
+		$scrolled_fixed       = $('.scrolled-fixed'),
+		scrolled_fixed_offset = $scrolled_fixed.offset(),
+		scrolled_target_pos   = scrolled_fixed_offset.top - 30,
+		scrolled_fixed_config = {
+			'position': 'fixed',
+			'top'     :  30,
+			'left'    :  scrolled_fixed_offset.left,
+			'width'   :  $scrolled_fixed.outerWidth(),
+			'z-index' : 10000
+		};
+
+	$window.on('scroll', function() {
+		if ( $window.scrollTop() > scrolled_target_pos ) {
+			activeScrollFixed();
+		} else {
+			deactiveScrollFixed();
+		}
+	});
+
+	function activeScrollFixed() {
+		$scrolled_fixed
+			.addClass('active-fixed')
+			.removeClass('deactive-fixed')
+			.css( scrolled_fixed_config );
+	}
+
+	function deactiveScrollFixed() {
+		$scrolled_fixed
+			.removeClass('active-fixed')
+			.addClass('deactive-fixed')
+			.removeAttr('style');
+	}
+
+});
 
 
 // ------------------------------
@@ -25,7 +57,7 @@ var LoofController = function($scope) {
 
 	// 컨트롤러 내부에서 사용되는 this의 참조 값은 컨트롤러
 	// 컨트롤러 스코프 내에 정의된 변수
-	$scope.app_name = 'RandomUserDataApp';
+	$scope.app_name = 'Random User Data - Sorting & Fitering App';
 	$scope.users = [
 		{
 			"user": {
