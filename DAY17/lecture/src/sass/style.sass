@@ -11,10 +11,51 @@
 .a11y-hidden
 	@extend %a11y-hidden
 
-.details-panel dd
-	margin-bottom: 1em
-	border-bottom: 1px dashed #ACACAC
+body
+	padding-top: 100px
+
+.header-bar
 	padding-bottom: 1em
+	// background: rgba(#242424, 0.74)
+	background: linear-gradient(180deg, rgba(#fff, 0.75) 30%, rgba(#fff, 0.34) 70%, transparent)
+
+.the-form
+	margin-bottom: 1.4em
+	background: #E8E8E8
+	border: 1px solid darken(#E8E8E8, 20%)
+
+.details-panel
+	$details-panel-border-color: #ACACAC
+	$long-shadow-color: darken($details-panel-border-color, 30%)
+	$long-shadow-script: ''
+	$long-shadow-depth: 3
+
+	@for $i from 1 through $long-shadow-depth
+		$divider: null
+		@if $i < $long-shadow-depth
+			$divider: ', '
+		@else
+			$divider: ''
+
+		$long-shadow-script: $long-shadow-script + '#{$i}px #{$i}px #{$long-shadow-color}#{$divider}'
+
+
+	@debug $long-shadow-script
+
+	img
+		margin-top: 10px
+		padding: 5px
+		border: 1px solid $details-panel-border-color
+		background: #fff
+		+box-shadow( unquote($long-shadow-script) )
+
+	dd
+		margin-bottom: 1em
+		border-bottom: 1px dashed $details-panel-border-color
+		padding-bottom: 1em
 
 .user-table tr.selected
-	background: yellow
+	&,
+	&:hover
+		background: yellow
+		color: #5B2012

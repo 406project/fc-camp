@@ -19,14 +19,14 @@ require('angular');
 // ------------------------------
 // AngularJS
 // ------------------------------
-var LectureApp = angular.module('LectureApp', []);
+var RandomUserDataApp = angular.module('RandomUserDataApp', []);
 
 // 컨트롤러
 var LoofController = function($scope) {
 
 	// 컨트롤러 내부에서 사용되는 this의 참조 값은 컨트롤러
 	// 컨트롤러 스코프 내에 정의된 변수
-	$scope.app_name = 'LectureApp';
+	$scope.app_name = 'RandomUserDataApp';
 	$scope.users = [
 		{
 			"user": {
@@ -1351,16 +1351,20 @@ var LoofController = function($scope) {
 	];
 
 	// 사용자가 선택한 사용자의 인덱스 정보를 담는 초기 변수
-	$scope.selected_index = null;
+	// $scope.selected_index = null;
+	$scope.selected_user = null;
+
+	$scope.search = {};
 
 	// 컨트롤러 스코프 내에 함수 정의
-	$scope.selectedUser = function( index ) {
-		$scope.selected_index = index;
+	$scope.selectedUser = function( person ) {
+		// $scope.selected_index = index;
+		$scope.selected_user = person.user;
 	};
 
 };
 
-LectureApp.controller('LoofController', LoofController);
+RandomUserDataApp.controller('LoofController', LoofController);
 },{"angular":2,"jquery":3}],2:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {

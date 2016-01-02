@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if !IE]><!-->
-<html lang="ko-KR" class="no-js" data-ng-app="LectureApp">
+<html lang="ko-KR" class="no-js" data-ng-app="RandomUserDataApp">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
@@ -13,7 +13,7 @@
 
 	<div id="app" data-ng-controller="LoofController">
 
-		<nav class="navbar navbar-inverse">
+		<nav class="header-bar navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
 					<a href="" class="navbar-brand">
@@ -22,6 +22,31 @@
 				</div>
 			</div>
 		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form name="theForm" class="form-inline well well-sm the-form">
+						<i class="glyphicon glyphicon-search" aria-label="Search"></i>
+						<div class="form-group">
+							<label>
+								<input type="text" class="form-control" placeholder="Search *" data-ng-model="search.$">
+							</label>
+						</div>
+						<!-- <div class="form-group">
+							<label>
+								<input type="text" class="form-control" placeholder="Search Name" data-ng-model="search.user.username">
+							</label>
+						</div>
+						<div class="form-group">
+							<label>
+								<input type="text" class="form-control" placeholder="Search Email" data-ng-model="search.user.email">
+							</label>
+						</div> -->
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<!-- <pre>{{LoofCtrl.users | json}}</pre> -->
 
@@ -61,12 +86,19 @@
 						</tr>
 						<!-- tbody -->
 						<tr
-							data-ng-repeat="user_obj in users"
+							data-ng-repeat="user_obj in users | filter:search"
+							data-ng-click="selectedUser( user_obj )"
+							data-ng-class="{
+								'selected': selected_user.email === user_obj.user.email
+							}"
+						>
+						<!-- <tr
+							data-ng-repeat="user_obj in users | filter:search"
 							data-ng-click="selectedUser( $index )"
 							data-ng-style="{
 								'background-color': (selected_index === $index ? 'yellow' : '')
 							}"
-						>
+						> -->
 							<!-- <td><pre>{{user_obj.user | json}}</pre></td> -->
 							<td>
 								{{$index+1}}
@@ -87,22 +119,27 @@
 							<h3 class="panel-title">User Info Details</h3>
 						</div>
 						<div class="panel-body details-panel">
-							<!-- <pre>{{ users[selected_index].user | json }}</pre> -->
-							<dl>
+							<!-- <pre>{{ selected_user | json }}</pre> -->
+							<dl data-ng-if="selected_user" >
+								<dt>Image</dt>
+								<dd>
+									<img src="#" data-ng-src="{{ selected_user.picture.medium }}" alt="">
+								</dd>
 								<dt>Name</dt>
-								<dd data-ng-bind="users[selected_index].user.name.first + ' ' +users[selected_index].user.name.last"></dd>
+								<dd data-ng-bind="selected_user.name.first + ' ' +selected_user.name.last"></dd>
 								<dt>Gender</dt>
-								<dd data-ng-bind="users[selected_index].user.gender"></dd>
+								<dd data-ng-bind="selected_user.gender"></dd>
 								<dt>Email</dt>
-								<dd>{{users[selected_index].user.email}}</dd>
+								<dd>{{selected_user.email}}</dd>
 								<dt>Location</dt>
-								<dd>{{users[selected_index].user.location.state + ' ' + users[selected_index].user.location.city + ' ' + users[selected_index].user.location.street}}</dd>
+								<dd>{{selected_user.location.state + ' ' + selected_user.location.city + ' ' + selected_user.location.street}}</dd>
 								<dt>Phone</dt>
-								<dd>{{users[selected_index].user.phone}}</dd>
+								<dd>{{selected_user.phone}}</dd>
 								<dt>Cell</dt>
-								<dd>{{users[selected_index].user.cell}}</dd>
+								<dd>{{selected_user.cell}}</dd>
 							</dl>
 						</div>
+						<!-- <pre>{{selected_user | json}}</pre> -->
 					</div>
 				</div>
 			</div>
