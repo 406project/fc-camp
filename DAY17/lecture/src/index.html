@@ -11,57 +11,54 @@
 </head>
 <body>
 
+	<!-- #app -->
 	<div id="app" data-ng-controller="LoofController">
 
+		<!-- .header-bar -->
 		<nav class="header-bar navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
 					<a href="/" class="navbar-brand">
-						<img src="images/AngularJS-Shield-large.png" width="37.45" height="39.7" alt="">
+						<img src="images/AngularJS-Shield-large.png" width="38" height="40" alt="">
 						{{app_name}}
 					</a>
 				</div>
 			</div>
 		</nav>
+		<!-- // .header-bar -->
 
+		<!-- .container -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<form name="theForm" class="form-inline well well-sm the-form">
-						<i class="glyphicon glyphicon-search" aria-label="Search"></i>
 						<div class="form-group">
-							<label>
+								<i class="glyphicon glyphicon-search" aria-label="Search"></i>
 								<input type="text" class="form-control" placeholder="Search *" data-ng-model="search.$">
-							</label>
 						</div>
-						<!-- <div class="form-group">
-							<label>
-								<input type="text" class="form-control" placeholder="Search Name" data-ng-model="search.user.username">
-							</label>
-						</div>
-						<div class="form-group">
-							<label>
-								<input type="text" class="form-control" placeholder="Search Email" data-ng-model="search.user.email">
-							</label>
-						</div> -->
 						<div class="form-group">
 							<i class="glyphicon glyphicon-sort-by-attributes" aria-label="Sorting with Attribute"></i>
 							<select class="form-control" data-ng-model="sort_option">
-								<option value="user.username">Name (ASC)</option>
-								<option value="-user.username">Name (DSC)</option>
+								<option value="user.username">Username (ASC)</option>
+								<option value="-user.username">Username (DSC)</option>
+								<option value="user.name.first">Name (ASC)</option>
+								<option value="-user.name.first">Name (DSC)</option>
 								<option value="user.email">Email (ASC)</option>
 								<option value="-user.email">Email (DSC)</option>
+								<option value="user.phone">Phone (ASC)</option>
+								<option value="-user.phone">Phone (DSC)</option>
 							</select>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+		<!--// .container -->
 
-		<!-- <pre>{{LoofCtrl.users | json}}</pre> -->
-
+		<!-- .container -->
 		<div class="container">
 			<div class="row">
+				<!-- .col-md-9 -->
 				<div class="col-md-9">
 					<table class="user-table table table-hover table-bordered">
 						<caption class="a11y-hidden">randomuser.me 사용자 정보 표</caption>
@@ -75,44 +72,38 @@
 								</th>
 								<th scope="col">
 									Username
-									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.username' ? '-user.username' : 'user.username')">
-										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									<a
+										href=""
+										role="button"
+										data-ng-click="sort_option = (sort_option === 'user.username' ? '-user.username' : 'user.username')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
 									</a>
-									<!-- <a href role="button" data-ng-click="sort_option = 'user.username'">
-										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
-									</a>
-									<a href role="button" data-ng-click="sort_option = '-user.username'">
-										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
-									</a> -->
 								</th>
 								<th scope="col">
 									Name
-									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.name.first' ? '-user.name.first' : 'user.name.first')">
-										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									<a
+										href=""
+										role="button"
+										data-ng-click="sort_option = (sort_option === 'user.name.first' ? '-user.name.first' : 'user.name.first')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
 									</a>
-									<!-- <a href role="button" data-ng-click="sort_option = 'user.name.first'">
-										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
-									</a>
-									<a href role="button" data-ng-click="sort_option = '-user.name.first'">
-										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
-									</a> -->
 								</th>
 								<th scope="col">
 									Email
-									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.email' ? '-user.email' : 'user.email')">
-										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									<a
+										href=""
+										role="button"
+										data-ng-click="sort_option = (sort_option === 'user.email' ? '-user.email' : 'user.email')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
 									</a>
-									<!-- <a href role="button" data-ng-click="sort_option = 'user.email'">
-										<i class="glyphicon glyphicon-chevron-up" aria-label="Sort Ascending"></i>
-									</a>
-									<a href role="button" data-ng-click="sort_option = '-user.email'">
-										<i class="glyphicon glyphicon-chevron-down" aria-label="Sort Descending"></i>
-									</a> -->
 								</th>
 								<th scope="col">
 									Phone
-									<a href role="button" data-ng-click="sort_option = (sort_option === 'user.phone' ? '-user.phone' : 'user.phone')">
-										<i class="glyphicon glyphicon-resize-vertical" aria-label="Toggle Sort Username"></i>
+									<a
+										href=""
+										role="button"
+										data-ng-click="sort_option = (sort_option === 'user.phone' ? '-user.phone' : 'user.phone')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
 									</a>
 								</th>
 								<th scope="col">
@@ -120,50 +111,46 @@
 								</th>
 							</tr>
 						</thead>
-						<tr
-							data-ng-hide="true"
-							data-ng-repeat="(index, obj) in users"
-							>
-							<td>{{'index: ' + index}}</td>
-							<td>{{'obj: ' + obj}}</td>
-						</tr>
 						<!-- tbody -->
 						<tr
-							data-ng-repeat="user_obj in users | filter:search | orderBy:sort_option"
+							data-ng-repeat="user_obj in filteredUsers=(users | filter:search | orderBy:sort_option)"
 							data-ng-click="selectedUser( user_obj )"
-							data-ng-class="{
-								'selected': selected_user.email === user_obj.user.email
-							}"
-						>
-						<!-- <tr
-							data-ng-repeat="user_obj in users | filter:search"
-							data-ng-click="selectedUser( $index )"
-							data-ng-style="{
-								'background-color': (selected_index === $index ? 'yellow' : '')
-							}"
-						> -->
-							<!-- <td><pre>{{user_obj.user | json}}</pre></td> -->
+							data-ng-class="{ 'selected': selected_user.email === user_obj.user.email }">
 							<td>
 								{{$index+1}}
 							</td>
 							<td>
-								<img src="#" width="80" height="80" data-ng-src="{{ user_obj.user.picture.thumbnail }}" alt="{{user_obj.user.username}}">
+								<img
+									src="#"
+									width="80"
+									height="80"
+									data-ng-src="{{ user_obj.user.picture.thumbnail }}" alt="{{user_obj.user.username}}">
 							</td>
 							<td>{{ user_obj.user.username }}</td>
 							<td>{{ user_obj.user.name.first }} {{ user_obj.user.name.last }}</td>
 							<td>{{ user_obj.user.email }}</td>
 							<td>{{ user_obj.user.phone }}</td>
-							<td><a href role="button" data-ng-click="selectedUser( user_obj )">show info</a></td>
+							<td><a href="" role="button" data-ng-click="selectedUser( user_obj )">show info</a></td>
 						</tr>
+						<tr data-ng-if="filteredUsers.length===0">
+							<td colspan="7" class="alert alert-info">
+								<p class="text-center">Found Not Result "{{search.$}}"</p>
+							</td>
+						</tr>
+						<!--// tbody -->
 					</table>
 				</div>
+				<!--// .col-md-9 -->
+
+				<!-- .col-md-3 | .scrolled-fixed -->
 				<div class="col-md-3 scrolled-fixed">
+					<!-- .panel -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">User Info Details</h3>
 						</div>
+						<!-- .panel-body -->
 						<div class="panel-body details-panel">
-							<!-- <pre>{{ selected_user | json }}</pre> -->
 							<dl data-ng-if="selected_user" >
 								<dt>Image</dt>
 								<dd>
@@ -183,13 +170,17 @@
 								<dd>{{selected_user.cell}}</dd>
 							</dl>
 						</div>
-						<!-- <pre>{{selected_user | json}}</pre> -->
+						<!--// .panel-body -->
 					</div>
+					<!--// .panel -->
 				</div>
+				<!--// .col-md-3 | .scrolled-fixed -->
 			</div>
 		</div>
+		<!--// .container -->
 
 	</div>
+	<!--// #app -->
 
 </body>
 </html>
