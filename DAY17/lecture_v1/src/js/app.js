@@ -10,6 +10,7 @@ require('angular');
 // jQuery
 // ------------------------------
 jQuery.noConflict(true)(function($) {
+
 	var $window               = $(window),
 		$scrolled_fixed       = $('.scrolled-fixed'),
 		scrolled_fixed_offset = $scrolled_fixed.offset(),
