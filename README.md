@@ -21,3 +21,5 @@
 - [15일차](SUMMARY/15.md)
 - [16일차](SUMMARY/16.md)
 - [17일차](SUMMARY/17.md)
+- [18일차](SUMMARY/18.md)
+- [19일차](SUMMARY/19.md)
