@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="ko-KR" class="no-js" data-ng-app="ScopeInherit">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>AngularJS - Scope 상속(Inheritance)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+	body {
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #ff0;
+	}
+	.parent-scope,
+	.child-scope {
+		padding: 2em 6em;
+	}
+	.parent-scope *,
+	.child-scope * {
+		margin-top: 0;
+	}
+	.parent-scope {
+		background-color: #169EFF;
+	}
+	.child-scope {
+		background-color: #FD9A14;
+	}
+	</style>
+	<script src="js/bundle/app.js"></script>
+</head>
+<!-- <body data-ng-init="scope_name = '루트 스코프에서 상속'"> -->
+<body>
+
+	<div class="root-scope">
+
+		<!-- root scope -->
+		<h1>Root Scope</h1>
+		<input type="text" data-ng-model="scope_name">
+		<p>{{scope_name}}</p>
+
+		<div
+			class="parent-scope"
+			data-ng-controller="ParentCtrl"
+		>
+
+			<h2>Parent Scope</h2>
+			<!-- parent scope -->
+			<input type="text" data-ng-model="scope_name">
+			<p>{{scope_name}}</p>
+
+			<div
+				class="child-scope"
+				data-ng-controller="ChildCtrl"
+			>
+
+				<h3>Child Scope</h3>
+				<!-- child scope -->
+				<input type="text" data-ng-model="scope_name">
+				<p>{{scope_name}}</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
