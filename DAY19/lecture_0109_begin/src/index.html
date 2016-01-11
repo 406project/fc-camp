@@ -7,21 +7,9 @@
 	<title>AngularJS - Sass &amp; Browserify</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
-	<style>
-	/*.notice {
-		display: none;
-	}
-	.no-js .notice {
-		display: block;
-	}*/
-	</style>
 	<script src="js/bundle/app.js"></script>
 </head>
 <body>
-
-	<!-- <div class="notice">
-		<p>Script가 지원되지 않는 환경입니다. :-( 브라우저를 업그레이드 해주세요.</p>
-	</div> -->
 
 	<!-- #app -->
 	<div id="app">
@@ -54,6 +42,7 @@
 							<div class="form-group">
 								<i class="glyphicon glyphicon-sort-by-attributes" aria-label="Sorting with Attribute"></i>
 								<select class="form-control" data-ng-model="sort_option">
+									<option value="">Sorting by Property</option>
 									<option value="username">Username (ASC)</option>
 									<option value="-username">Username (DSC)</option>
 									<option value="name.first">Name (ASC)</option>
@@ -121,7 +110,7 @@
 						</thead>
 						<!-- tbody -->
 						<tr
-							data-ng-repeat="user in filteredData=(users | filter:sensitiveSearch | orderBy:sort_option)"
+							data-ng-repeat="user in filteredData=(contact.users | filter:sensitiveSearch | orderBy:sort_option)"
 							data-ng-click="selectedUser( user )"
 							data-ng-class="{ 'selected': selected_user.email === user.email }">
 							<td>
@@ -162,23 +151,23 @@
 						</div>
 						<!-- .panel-body -->
 						<div class="panel-body details-panel">
-							<dl data-ng-if="selected_user" >
+							<dl data-ng-if="contact.selected_user" >
 								<dt>Image</dt>
 								<dd>
-									<img src="#" data-ng-src="{{ selected_user.picture.medium }}" alt="">
+									<img src="#" data-ng-src="{{ contact.selected_user.picture.medium }}" alt="">
 								</dd>
 								<dt>Name</dt>
-								<dd data-ng-bind="selected_user.name.first + ' ' +selected_user.name.last"></dd>
+								<dd data-ng-bind="contact.selected_user.name.first + ' ' +contact.selected_user.name.last"></dd>
 								<dt>Gender</dt>
-								<dd data-ng-bind="selected_user.gender"></dd>
+								<dd data-ng-bind="contact.selected_user.gender"></dd>
 								<dt>Email</dt>
-								<dd>{{selected_user.email}}</dd>
+								<dd>{{contact.selected_user.email}}</dd>
 								<dt>Location</dt>
-								<dd>{{selected_user.location.state + ' ' + selected_user.location.city + ' ' + selected_user.location.street}}</dd>
+								<dd>{{contact.selected_user.location.state + ' ' + contact.selected_user.location.city + ' ' + contact.selected_user.location.street}}</dd>
 								<dt>Phone</dt>
-								<dd>{{selected_user.phone}}</dd>
+								<dd>{{contact.selected_user.phone}}</dd>
 								<dt>Cell</dt>
-								<dd>{{selected_user.cell}}</dd>
+								<dd>{{contact.selected_user.cell}}</dd>
 							</dl>
 						</div>
 						<!--// .panel-body -->

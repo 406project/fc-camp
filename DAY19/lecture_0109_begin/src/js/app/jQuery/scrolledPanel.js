@@ -1,4 +1,5 @@
-jQuery(function($) {
+require('jquery');
+jQuery.noConflict(true)(function($) {
 
 	// 문서객체 참조 DOM Reference
 	// 상태 캐시 Cache of Elements State
