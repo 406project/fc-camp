@@ -9,7 +9,7 @@ function membersFactory($http) {
 	// Ajax 호출
 	$http
 		// randomuser.me에서 랜덤 사용자 정보 JSON 요청
-		.get('https://randomuser.me/api/?results=30')
+		.get('https://randomuser.me/api/?results=40&gender=female')
 		// 사용자 정보를 성공적으로 전달 받은 후 실행
 		.then(function(response) {
 			// 전달 받은 JSON 데이터에서 필요한 user 속성 내부 값을
