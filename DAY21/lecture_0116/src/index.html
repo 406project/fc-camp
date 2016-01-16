@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="ko-KR" class="no-js" data-ng-app="RandomUserDataApp">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>AngularJS - Sass &amp; Browserify</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/bundle/app.js"></script>
+</head>
+<body>
+
+	<!-- #app -->
+	<div id="app">
+
+		<!-- .header-bar -->
+		<header class="header-bar navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">
+						<img src="images/AngularJS-Shield-large.png" width="38" height="40" alt="">
+						Random User Data - Sorting &amp; Fitering App
+					</a>
+				</div>
+			</div>
+		</header>
+		<!-- // .header-bar -->
+
+		<!-- .container -->
+		<div class="container">
+			<div class="row">
+				<!-- .col-md-9 -->
+				<div class="col-md-9" data-ng-controller="ListController">
+					<!-- .form-area -->
+					<div class="form-area">
+						<form name="theForm" class="form-inline well well-sm the-form">
+							<div class="form-group">
+									<i class="glyphicon glyphicon-search" aria-label="Search"></i>
+									<input type="text" class="form-control" placeholder="Search" data-ng-model="search">
+							</div>
+							<div class="form-group">
+								<i class="glyphicon glyphicon-sort-by-attributes" aria-label="Sorting with Attribute"></i>
+								<select class="form-control" data-ng-model="order">
+									<option value="">Sorting by Property</option>
+									<option value="sex">Gender (ASC)</option>
+									<option value="-sex">Gender (DSC)</option>
+									<option value="name">Name (ASC)</option>
+									<option value="-name">name (DSC)</option>
+									<option value="email">Email (ASC)</option>
+									<option value="-email">Email (DSC)</option>
+									<option value="phonenumber">Phone (ASC)</option>
+									<option value="-phonenumber">Phone (DSC)</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<!--// .form-area -->
+					<!-- .user-table -->
+					<table
+						class="user-table table table-hover table-bordered"
+						data-infinite-scroll="loadMore()"
+						data-infinite-scroll-distance="0"
+					>
+						<caption class="a11y-hidden">randomuser.me 사용자 정보 표</caption>
+						<thead>
+							<tr>
+								<th scope="col">
+									Number
+								</th>
+								<th scope="col">
+									Photo
+								</th>
+								<th scope="col">
+									Gender
+									<a
+										href=""
+										role="button"
+										data-ng-click="order = (order === 'sex' ? '-sex' : 'sex')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
+									</a>
+								</th>
+								<th scope="col">
+									Name
+									<a
+										href=""
+										role="button"
+										data-ng-click="order = (order === 'name' ? '-name' : 'name')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
+									</a>
+								</th>
+								<th scope="col">
+									Email
+									<a
+										href=""
+										role="button"
+										data-ng-click="order = (order === 'email' ? '-email' : 'email')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
+									</a>
+								</th>
+								<th scope="col">
+									Phone
+									<a
+										href=""
+										role="button"
+										data-ng-click="order = (order === 'phonenumber' ? '-phonenumber' : 'phonenumber')">
+										<i class="glyphicon glyphicon-sort" aria-label="Toggle Sort Username"></i>
+									</a>
+								</th>
+								<th scope="col">
+									Details
+								</th>
+							</tr>
+						</thead>
+						<!-- tbody -->
+						<tr
+							data-ng-repeat="user in contact.users"
+							data-ng-click="selectedUser( user )"
+							data-ng-class="{ 'selected': selected_user.email === user.email }">
+							<td>
+								<!-- <pre>{{ user | json }}</pre> -->
+								{{ $index + 1 }}
+							</td>
+							<td>
+								<img
+									src="#"
+									width="80"
+									height="80"
+									data-ng-src="{{ user.photo }}" alt="{{user.name}}">
+							</td>
+							<td>{{ user.sex | gender }}</td>
+							<td>{{ user.name }}</td>
+							<td>{{ user.email }}</td>
+							<td>{{ user.phonenumber | removeX }}</td>
+							<td><a href="" role="button" data-ng-click="selectedUser( user )">show info</a></td>
+						</tr>
+						<tr data-ng-if="contact.users.length === 0">
+							<td colspan="7">
+								<div class="alert alert-info">
+									사용자가 입력한 "{{search}}" 검색 결과를 찾을 수 없었습니다.
+								</div>
+							</td>
+						</tr>
+						<!--// tbody -->
+					</table>
+					<!--// .user-table -->
+					<!-- 시작: .spinner -->
+					<div class="spinner">
+						<i data-us-spinner="{radius:8, width:5, length: 7, lines: 9, color: '#82AEC9'}"></i>
+					</div>
+					<!-- 끝: .spinner -->
+				</div>
+				<!--// .col-md-9 -->
+
+				<!-- .col-md-3 | .scrolled-fixed -->
+				<div class="col-md-3 scrolled-fixed" data-ng-controller="DetailsController">
+					<!-- .panel -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">User Info Details</h3>
+						</div>
+						<!-- .panel-body -->
+						<div class="panel-body details-panel">
+							<dl data-ng-if="contact.selected_user" >
+								<dt>Image</dt>
+								<dd>
+									<img
+										src="#" data-ng-src="{{ contact.selected_user.photo }}"
+										width="220"
+										height="220"
+										alt=""
+									>
+								</dd>
+								<dt>Name</dt>
+								<dd data-ng-bind="contact.selected_user.name"></dd>
+								<dt>Gender</dt>
+								<dd data-ng-bind="contact.selected_user.sex | gender"></dd>
+								<dt>Email</dt>
+								<dd>{{contact.selected_user.email}}</dd>
+								<dt>Address</dt>
+								<dd>{{contact.selected_user.address + ', ' + contact.selected_user.city}}</dd>
+								<dt>Phone</dt>
+								<dd>{{contact.selected_user.phonenumber | removeX }}</dd>
+								<!-- <dt>Cell</dt>
+								<dd>{{contact.selected_user.cell}}</dd> -->
+							</dl>
+						</div>
+						<!--// .panel-body -->
+					</div>
+					<!--// .panel -->
+				</div>
+				<!--// .col-md-3 | .scrolled-fixed -->
+			</div>
+		</div>
+		<!--// .container -->
+
+	</div>
+	<!--// #app -->
+
+</body>
+</html>

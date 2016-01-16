@@ -1,0 +1,123 @@
+//
+ * --------------------------------
+ * 환경설정
+ * --------------------------------
+@import config
+
+//
+ * --------------------------------
+ * 페이지
+ * --------------------------------
+.a11y-hidden
+	@extend %a11y-hidden
+
+body
+	padding-top: 100px
+
+.header-bar
+	padding-bottom: 2em
+	// background: rgba(#22424, 0.74)
+	background: linear-gradient(180deg, #fff 40%, transparent)
+
+	.navbar-brand
+		display: block
+		padding-bottom: 4.5em
+		img
+			display: inline
+
+.the-form
+	margin-bottom: 1.4em
+	background: #E8E8E8
+	border: 1px solid darken(#E8E8E8, 20%)
+
+	.form-group
+		margin-right: 1em
+
+.panel
+	margin-bottom: 0
+
+.details-panel
+	$details-panel-border-color: #ACACAC
+	$long-shadow-color: darken($details-panel-border-color, 30%)
+	$long-shadow-script: ''
+	$long-shadow-depth: 3
+
+	@for $i from 1 through $long-shadow-depth
+		$divider: null
+		@if $i < $long-shadow-depth
+			$divider: ', '
+		@else
+			$divider: ''
+
+		$long-shadow-script: $long-shadow-script + '#{$i}px #{$i}px #{$long-shadow-color}#{$divider}'
+
+	padding-bottom: 0
+
+	img
+		margin-top: 10px
+		padding: 5px
+		border: 1px solid $details-panel-border-color
+		background: #fff
+		+box-shadow( unquote($long-shadow-script) )
+
+	dd
+		margin-bottom: 1em
+		border-bottom: 1px dashed $details-panel-border-color
+		padding-bottom: 1em
+
+		&:last-child
+			margin-bottom: 0
+			border-bottom: 0
+			padding-bottom: 0
+
+/**
+ * --------------------------------
+ * .user-table
+.user-table
+
+	a[role="button"]
+		text-decoration: none
+		color: inherit
+
+		&:hover,
+		&:focus
+			color: darken(#78C654, 5%)
+
+	tr.selected
+		&,
+		&:hover
+			background: yellow
+			color: #5B2012
+
+
+//
+ * --------------------------------
+ * .scrolled-fixed
+.scrolled-fixed
+	transition: all 0.4s ease-out
+	position: relative
+	top: 0
+
+	&.active-fixed
+		animation: move-up 0.6s ease-out forwards
+	&.deactive-fixed
+		animation: move-up-reverse 0.6s ease-out forwards
+
+//
+ * --------------------------------
+ * 애니메이션 설정
+@keyframes move-up
+	0%
+		opacity: 0
+		top: 1000px
+	50%
+		opacity: 0
+	100%
+		opacity: 1
+
+@keyframes move-up-reverse
+	0%
+		// opacity: 0
+		top: -1000px
+	100%
+		opacity: 1
