@@ -41,8 +41,6 @@ function membersService(membersFactory) {
 				'ordering': service.order
 			};
 
-			console.log(params);
-
 			membersFactory.get(params, function(response) {
 				angular.forEach(response.results, function(user) {
 					// user is Object {}., new membersFactory 생성자 사용 시, $resouce 객체 생성(메소드 사용 가능)

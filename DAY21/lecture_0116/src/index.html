@@ -134,62 +134,27 @@
 							<td>{{ user.phonenumber | removeX }}</td>
 							<td><a href="" role="button" data-ng-click="selectedUser( user )">show info</a></td>
 						</tr>
-						<tr data-ng-if="contact.users.length === 0">
-							<td colspan="7">
-								<div class="alert alert-info">
-									사용자가 입력한 "{{search}}" 검색 결과를 찾을 수 없었습니다.
-								</div>
-							</td>
-						</tr>
 						<!--// tbody -->
 					</table>
 					<!--// .user-table -->
+					<div data-ng-if="contact.users.length === 0 &amp;&amp; !contact.is_loading">
+						<div class="alert alert-info">
+							사용자가 입력한 "{{search}}" 검색 결과를 찾을 수 없었습니다.
+						</div>
+					</div>
 					<!-- 시작: .spinner -->
-					<div class="spinner">
+					<div class="spinner" data-ng-show="contact.is_loading">
 						<i data-us-spinner="{radius:8, width:5, length: 7, lines: 9, color: '#82AEC9'}"></i>
+						<p>
+							Loading....
+						</p>
 					</div>
 					<!-- 끝: .spinner -->
 				</div>
 				<!--// .col-md-9 -->
 
-				<!-- .col-md-3 | .scrolled-fixed -->
-				<div class="col-md-3 scrolled-fixed" data-ng-controller="DetailsController">
-					<!-- .panel -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">User Info Details</h3>
-						</div>
-						<!-- .panel-body -->
-						<div class="panel-body details-panel">
-							<dl data-ng-if="contact.selected_user" >
-								<dt>Image</dt>
-								<dd>
-									<img
-										src="#" data-ng-src="{{ contact.selected_user.photo }}"
-										width="220"
-										height="220"
-										alt=""
-									>
-								</dd>
-								<dt>Name</dt>
-								<dd data-ng-bind="contact.selected_user.name"></dd>
-								<dt>Gender</dt>
-								<dd data-ng-bind="contact.selected_user.sex | gender"></dd>
-								<dt>Email</dt>
-								<dd>{{contact.selected_user.email}}</dd>
-								<dt>Address</dt>
-								<dd>{{contact.selected_user.address + ', ' + contact.selected_user.city}}</dd>
-								<dt>Phone</dt>
-								<dd>{{contact.selected_user.phonenumber | removeX }}</dd>
-								<!-- <dt>Cell</dt>
-								<dd>{{contact.selected_user.cell}}</dd> -->
-							</dl>
-						</div>
-						<!--// .panel-body -->
-					</div>
-					<!--// .panel -->
-				</div>
-				<!--// .col-md-3 | .scrolled-fixed -->
+				<!-- ngInclude: 외부의 분리된 HTML 페이지 호출 -->
+				<div data-ng-include="'views/details.html'"></div>
 			</div>
 		</div>
 		<!--// .container -->

@@ -39,6 +39,9 @@ require('./app/Controllers/DetailsController');
 require('./app/Services/membersFactory');
 require('./app/Services/membersService');
 
+// Directives 호출
+require('./app/Directives/headingDirective');
+
 // Filters 호출
 require('./app/Filters/genderFilter');
 require('./app/Filters/removeXFilter');

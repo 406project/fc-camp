@@ -1,0 +1,45 @@
+<!--.col-md-3 | .scrolled-fixed -->
+<div class="col-md-3 scrolled-fixed" data-ng-controller="DetailsController">
+	<!-- .panel -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+
+			<!-- 커스텀 디렉티브 사용 -->
+			<div
+				data-yamoo9-heading
+				data-h1="hi, there"
+				data-h2="{{headings.h2}}"
+			></div>
+
+		</div>
+		<!-- .panel-body -->
+		<div class="panel-body details-panel">
+			<dl data-ng-if="contact.selected_user" >
+				<dt>Image</dt>
+				<dd>
+					<img
+						src="#" data-ng-src="{{ contact.selected_user.photo }}"
+						width="220"
+						height="220"
+						alt=""
+					>
+				</dd>
+				<dt>Name</dt>
+				<dd data-ng-bind="contact.selected_user.name"></dd>
+				<dt>Gender</dt>
+				<dd data-ng-bind="contact.selected_user.sex | gender"></dd>
+				<dt>Email</dt>
+				<dd>{{contact.selected_user.email}}</dd>
+				<dt>Address</dt>
+				<dd>{{contact.selected_user.address + ', ' + contact.selected_user.city}}</dd>
+				<dt>Phone</dt>
+				<dd>{{contact.selected_user.phonenumber | removeX }}</dd>
+				<!-- <dt>Cell</dt>
+				<dd>{{contact.selected_user.cell}}</dd> -->
+			</dl>
+		</div>
+		<!--// .panel-body -->
+	</div>
+	<!--// .panel -->
+</div>
+<!--// .col-md-3 | .scrolled-fixed
