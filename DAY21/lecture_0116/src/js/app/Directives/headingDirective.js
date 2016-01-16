@@ -15,9 +15,17 @@ angular.module('AppComponents')
 		// 'controllerAs': '',
 		'scope': {
 			'h1': '@',
-			'h2': '@'
+			'h2': '@',
+			'equal': '='
 		},
-		'template': '<header> <h1>{{h1}}</h1><h2>{{h2}}</h2> </header> <input type="text" data-ng-model="h1" />'
+		'template': '<header> <h1>{{h1}}</h1><h2>{{h2}}</h2> <p>{{equal.h1 + ", " + equal.h2}}</p></header>',
+		'link': function(scope, element, attributes, controller) {
+			console.log( scope, element, attributes, controller );
+		},
+		'controller': function($scope) {
+			console.log( 'this is yamoo9-heading directive controller' );
+			console.log( $scope );
+		}
 	};
 
 	// 디렉티브 정의 객체 반환

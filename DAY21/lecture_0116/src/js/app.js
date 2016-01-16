@@ -3,6 +3,7 @@
 
 // CommonJS 진영의 모듈 로딩 방식
 require('modernizr');
+require('jquery');
 require('angular');
 require('angular-resource');
 require('angular-infinite-scroll');
@@ -13,7 +14,7 @@ require('angular-spinner');
 // jQuery
 // ------------------------------
 // jQuery Scrolled Panel 모듈 호출
-require('./app/jQuery/scrolledPanel');
+// require('./app/jQuery/scrolledPanel');
 
 
 // ------------------------------
@@ -40,7 +41,8 @@ require('./app/Services/membersFactory');
 require('./app/Services/membersService');
 
 // Directives 호출
-require('./app/Directives/headingDirective');
+// require('./app/Directives/headingDirective');
+require('./app/Directives/scrolledPanelDirective');
 
 // Filters 호출
 require('./app/Filters/genderFilter');

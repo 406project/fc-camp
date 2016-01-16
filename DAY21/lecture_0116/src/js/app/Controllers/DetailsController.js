@@ -12,9 +12,9 @@ function DetailsController($scope, membersService) {
 	// 서비스 객체를 현재 컨트롤러의 스코프 속성에 할당
 	$scope.contact = membersService;
 
-	$scope.headings = {
-		'h1': 'Heading',
-		'h2': 'SubHeading'
-	};
+	// $scope.headings = {
+	// 	'h1': 'Fast Campus',
+	// 	'h2': 'Front-End CAMP'
+	// };
 
 };

@@ -1,19 +1,8 @@
-<!--.col-md-3 | .scrolled-fixed -->
-<div class="col-md-3 scrolled-fixed" data-ng-controller="DetailsController">
+<div class="col-md-3 scrolled-fixed">
 	<!-- .panel -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-
 			<h1 class="panel-title">Detail Info.</h1>
-
-			<!-- 커스텀 디렉티브 사용 -->
-			<!-- <div
-				data-yamoo9-heading
-				data-h1="{{headings.h1}}"
-				data-h2="{{headings.h2}}"
-				data-equal="headings"
-			></div> -->
-
 		</div>
 		<!-- .panel-body -->
 		<div class="panel-body details-panel">
@@ -37,12 +26,9 @@
 				<dd>{{contact.selected_user.address + ', ' + contact.selected_user.city}}</dd>
 				<dt>Phone</dt>
 				<dd>{{contact.selected_user.phonenumber | removeX }}</dd>
-				<!-- <dt>Cell</dt>
-				<dd>{{contact.selected_user.cell}}</dd> -->
 			</dl>
 		</div>
 		<!--// .panel-body -->
 	</div>
 	<!--// .panel -->
 </div>
-<!--// .col-md-3 | .scrolled-fixed
