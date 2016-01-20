@@ -34,7 +34,8 @@
     "angular": "./src/js/lib/angular/angular.min.js",
     "angular-resource": "./src/js/lib/angular-resource/angular-resource.min.js",
     "angular-infinite-scroll": "./src/js/lib/ngInfiniteScroll/build/ng-infinite-scroll.min.js",
-    "angular-spinner": "./src/js/lib/angular-spinner/angular-spinner.min.js"
+    "angular-spinner": "./src/js/lib/angular-spinner/angular-spinner.min.js",
+    "angular-route": "./src/js/lib/angular-route/angular-route.js"
   },
   "browserify-shim": {
     "jquery": {

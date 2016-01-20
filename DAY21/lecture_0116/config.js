@@ -13,7 +13,7 @@ var paths = {
 		'dest': root + 'css'
 	},
 	'browserify': {
-		'src':             root + 'js/app.js',
+		'src':             [root + 'js/app.js', root+'js/routes.js'],
 		'watch_files':     [root + 'js/*.js', root + 'js/app/**/*.js'],
 		'dest':            root + 'js/bundle/',
 		'output_filename': 'app.js',
